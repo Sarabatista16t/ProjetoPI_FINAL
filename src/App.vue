@@ -1,17 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <Layout>
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <b-carousel>
+          <b-carousel-item v-for="(image, i) in images" :key="i">
+            <figure class="image is-16by9">
+              <img :src="image" />
+            </figure>
+          </b-carousel-item>
+        </b-carousel>
+      </div>
+    </div>
+  </Layout>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data () {
+    return {
+      images: [
+        require('./assets/images/slideshow1.png'),
+        require('./assets/images/slideshow2.png'),
+        require('./assets/images/slideshow3.png')
+      ]
+    }
   }
 }
 </script>
